@@ -1,0 +1,132 @@
+@let p = profile()!;
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="badge">H</div>
+      <div class="brandText">
+        <div class="small">PORTFOLIO</div>
+        <div class="dotted">{{ p?.name }}</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn" [href]="resumeUrl" target="_blank" rel="noopener">View Resume</a>
+      <a class="btn ghost" [href]="p?.links?.github" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="small">SYSTEM</div>
+    <h1 class="h1">
+      {{ p?.role }}
+    </h1>
+    <p class="sub">{{ p?.summary }}</p>
+
+    <div class="heroActions">
+      <a class="btn" [href]="resumeUrl" target="_blank" rel="noopener">Open PDF</a>
+      <a class="btn ghost" [href]="'mailto:' + p?.links?.email">Email</a>
+      <a class="btn ghost" [href]="p?.links?.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card span6">
+      <div class="cardHead">
+        <div>
+          <div class="dottedSub">PROFILE</div>
+          <div class="meta">
+            Angular-focused frontend developer. Clean UI systems, performance, and simple APIs.
+          </div>
+        </div>
+        <div class="tag">AVAILABLE</div>
+      </div>
+
+      <div class="kv">
+        <div class="k">STACK</div><div class="v">Angular • TypeScript • NestJS</div>
+        <div class="k">FOCUS</div><div class="v">UI • APIs • Deployment</div>
+        <div class="k">REGION</div><div class="v">USA</div>
+      </div>
+    </div>
+
+    <div class="card span6">
+      <div class="cardHead">
+        <div>
+          <div class="dottedSub">RESUME</div>
+          <div class="meta">Public link for recruiters. No login required.</div>
+        </div>
+        <div class="tag">PDF</div>
+      </div>
+
+      <div class="cardActions">
+        <a class="btn" [href]="resumeUrl" target="_blank" rel="noopener">Download / View</a>
+      </div>
+    </div>
+
+    <div class="card span12">
+      <div class="cardHead">
+        <div>
+          <div class="dottedSub">SKILLS</div>
+          <div class="meta">Short + credible list.</div>
+        </div>
+        <div class="tag">CORE</div>
+      </div>
+
+      <div class="chips">
+        @for (s of p?.skills || [] ;track s ){
+          <span class="chip">{{ s }}</span>
+        }
+      </div>
+    </div>
+
+    <div class="card span12">
+      <div class="cardHead">
+        <div>
+          <div class="dottedSub">PROJECTS</div>
+        </div>
+        <div class="tag">SELECTED</div>
+      </div>
+
+      <div class="projects">
+        @for (p2 of p?.projects || [] ;track p2.name) {
+          <div class="proj">
+            <div class="projLeft">
+              <div class="projName">{{ p2?.name }}</div>
+              <div class="projDesc">{{ p2?.desc }}</div>
+              <div class="projStack">
+                @for (t of p2?.stack ;track t) {
+                  <span class="chip">{{ t }}</span>
+                }
+              </div>
+            </div>
+            <div class="projRight">
+              @if (p2?.link) {
+                <a class="btn ghost" [href]="p2.link" target="_blank" rel="noopener">Open</a>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="card span12">
+      <div class="cardHead">
+        <div>
+          <div class="dottedSub">CONTACT</div>
+          <div class="meta">One click for recruiters.</div>
+        </div>
+        <div class="tag">LINKS</div>
+      </div>
+
+      <div class="contact">
+        <a class="btn" [href]="'mailto:' + p?.links?.email">Email</a>
+        <a class="btn ghost" [href]="p?.links?.github" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" [href]="p?.links?.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="small">BUILD</div>
+    <div class="muted">Angular 21 • NestJS • MongoDB • Azure</div>
+  </footer>
+</div>

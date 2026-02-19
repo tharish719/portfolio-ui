@@ -1,0 +1,206 @@
+
+@use "@fontsource/raleway-dots/index.css";
+
+.shell{ max-width: 1120px; margin: 0 auto; padding: 22px; }
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  border-bottom:1px solid rgba(244,244,245,.14);
+  padding:14px 0;
+}
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.badge{
+  width:40px; height:40px;
+  border-radius:12px;
+  border:1px solid rgba(244,244,245,.14);
+  display:grid; place-items:center;
+  background: rgba(244,244,245,.04);
+  font-weight: 800;
+}
+
+.actions{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+
+.hero{ padding: 42px 0 18px; }
+.small{ font-size:12px; color:#a1a1aa; letter-spacing:.12em; text-transform:uppercase; }
+.h1{ margin: 10px 0 10px; font-size: 46px; line-height: 1.03; color:#f4f4f5; }
+.muted{ color: #a1a1aa; }
+.sub{ color:#a1a1aa; max-width: 70ch; line-height: 1.6; }
+.heroActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 18px; }
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  padding: 14px 0 6px;
+}
+
+.span6{ grid-column: span 6; }
+.span12{ grid-column: span 12; }
+
+.card{
+  border:1px solid rgba(244,244,245,.14);
+  background: linear-gradient(180deg, rgba(244,244,245,.06), rgba(244,244,245,.03));
+  border-radius: 16px;
+  padding:16px;
+  position:relative;
+  overflow:hidden;
+  transition: transform .18s ease, border-color .18s ease;
+}
+.card:hover{ transform: translateY(-2px); border-color: rgba(244,244,245,.26); }
+
+.card::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(circle at 1px 1px, rgba(239, 239, 242, 0.25) 1px, transparent 1.6px);
+  background-size: 18px 18px;
+  opacity:.35;
+  pointer-events:none;
+}
+
+.cardHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  position:relative;
+  z-index:1;
+}
+
+.dotTitle{
+  font-size: 14px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight: 800;
+
+  /* dot-matrix look without custom font */
+  background: radial-gradient(circle, rgba(244,244,245,.95) 1px, transparent 1.6px);
+  background-size: 7px 7px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.meta{
+  margin-top:8px;
+  color:#a1a1aa;
+  font-size: 13px;
+  line-height: 1.5;
+  position:relative;
+  z-index:1;
+}
+
+.tag{
+  border:1px solid rgba(244,244,245,.14);
+  background: rgba(244,244,245,.03);
+  padding:6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color:#a1a1aa;
+  white-space: nowrap;
+  position:relative;
+  z-index:1;
+}
+
+.kv{
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px 14px;
+  margin-top: 16px;
+  position:relative;
+  z-index:1;
+}
+.k{
+  color:#a1a1aa;
+  font-size: 12px;
+  letter-spacing:.12em;
+  text-transform: uppercase;
+}
+.v{ color:#f4f4f5; font-size: 14px; }
+
+.btn{
+  border:1px solid rgba(244,244,245,.14);
+  background: transparent;
+  color:#f4f4f5;
+  padding:10px 12px;
+  border-radius: 12px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.btn:hover{ background: rgba(244,244,245,.06); transform: translateY(-1px); border-color: rgba(244,244,245,.24); }
+.btn:active{ transform: translateY(0px); }
+.ghost{ background: rgba(244,244,245,.02); }
+
+.cardActions{ margin-top: 16px; position:relative; z-index:1; }
+.hint{ margin-top: 10px; color:#a1a1aa; font-size: 13px; position:relative; z-index:1; }
+
+.chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; position:relative; z-index:1; }
+.chip{
+  border:1px solid rgba(244,244,245,.14);
+  background: rgba(244,244,245,.03);
+  padding:6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  color:#a1a1aa;
+}
+
+.projects{ margin-top: 10px; position:relative; z-index:1; }
+.proj{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(244,244,245,.14);
+}
+.proj:first-child{ border-top: 0; }
+.projName{ font-weight: 700; letter-spacing:.01em; color:#f4f4f5; }
+.projDesc{ color:#a1a1aa; margin-top: 6px; line-height: 1.55; }
+.projStack{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px; }
+.projRight{ display:flex; align-items:flex-start; }
+
+.contact{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; position:relative; z-index:1; }
+
+.footer{
+  border-top:1px solid rgba(244,244,245,.14);
+  margin-top: 16px;
+  padding: 16px 0 28px;
+}
+
+:host, .shell { background:#0b0b0c; }
+
+@media (max-width: 900px){
+  .span6{ grid-column: span 12; }
+  .h1{ font-size: 38px; }
+}
+
+.dotted {
+  font-family: "Raleway Dots", cursive;
+  font-size: 56px;
+  letter-spacing: 4px;
+  color: #11d71e; /* dark green text */
+
+  /* Green glow around text */
+  text-shadow:
+    0 0 4px #0a0a0a,
+    0 0 8px #66bb6a,
+    0 0 16px #0a0a0a;
+}
+
+.dottedSub {
+  font-family: "Raleway Dots", cursive;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: #e9efe9; /* dark green text */
+
+  /* Green glow around text */
+  text-shadow:
+    0 0 4px #0a0a0a,
+    0 0 8px #66bb6a,
+    0 0 16px #0a0a0a;
+}
